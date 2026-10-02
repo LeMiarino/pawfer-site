@@ -1,0 +1,53 @@
+:root {
+  --grape: #5B3FD9;
+  --grape-dk: #3F27A8;
+  --orange: #FF8A3D;
+  --ink: #1E1838;
+  --muted: #5D5677;
+  --bg: #F4F1FB;
+  --card: #FFFFFF;
+  --line: #E2DCF5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --grape: #8E78F5;
+    --grape-dk: #4E35C2;
+    --ink: #F2EFFF;
+    --muted: #ABA5C6;
+    --bg: #15122B;
+    --card: #221D3E;
+    --line: #2F2852;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.6 'Nunito Sans', system-ui, sans-serif;
+}
+a { color: var(--grape); font-weight: 700; }
+h1, h2, h3, .brand { font-family: 'Fredoka', system-ui, sans-serif; font-weight: 600; line-height: 1.15; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+header.top { padding: 18px 0; }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 24px; color: var(--ink); text-decoration: none; }
+.brand img { width: 40px; height: 40px; border-radius: 10px; }
+nav a { margin-left: 16px; font-size: 15px; text-decoration: none; }
+.hero { text-align: center; padding: 32px 0 48px; }
+.hero img { width: min(260px, 70vw); height: auto; }
+.hero h1 { font-size: clamp(34px, 7vw, 52px); margin: 8px 0 12px; }
+.hero p { color: var(--muted); font-size: 19px; max-width: 520px; margin: 0 auto 24px; }
+.badge { display: inline-block; padding: 12px 22px; border-radius: 16px; background: var(--grape); color: #fff; text-decoration: none; border-bottom: 5px solid var(--grape-dk); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; padding-bottom: 48px; }
+.card { background: var(--card); border-radius: 22px; padding: 20px; border-bottom: 4px solid var(--line); }
+.card h3 { margin: 0 0 6px; font-size: 20px; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+article { background: var(--card); border-radius: 24px; padding: clamp(20px, 5vw, 40px); margin-bottom: 40px; border-bottom: 4px solid var(--line); }
+article h1 { font-size: clamp(30px, 6vw, 40px); margin-top: 0; }
+article h2 { font-size: 22px; margin-top: 32px; }
+article .meta { color: var(--muted); margin-top: -8px; }
+article li { margin-bottom: 6px; }
+footer { color: var(--muted); font-size: 14px; padding: 8px 0 40px; text-align: center; }
+footer a { margin: 0 8px; }
