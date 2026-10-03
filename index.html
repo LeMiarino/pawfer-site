@@ -2,34 +2,348 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Pawfer · Dog training with Max</title>
-  <meta name="description" content="Pawfer is a dog-training app with five-minute lessons, a built-in clicker and Max the French bulldog cheering you on.">
+  <meta name="description" content="Pawfer is a dog-training app for iPhone: short daily lessons, a built-in clicker, nine training programs and Max the French bulldog cheering you on.">
+  <meta name="theme-color" content="#5B3FD9">
+  <meta property="og:title" content="Pawfer · Click. Treat. Good dog.">
+  <meta property="og:description" content="Short daily lessons, a built-in clicker and nine training programs for your dog.">
+  <meta property="og:image" content="https://lemiarino.github.io/pawfer-site/img/og.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Figtree:wght@400;500;600;700&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="./"><img src="icon.png" alt="">Pawfer</a>
-      <nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+      <a class="brand" href="./"><img src="img/icon-128.png" alt="">Pawfer</a>
+      <nav aria-label="Main">
+        <a class="hide-sm" href="#method">Method</a>
+        <a class="hide-sm" href="#programs">Programs</a>
+        <a href="#pricing">Pricing</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
     </div>
   </header>
-  <main class="wrap">
-    <section class="hero">
-      <img src="max.png" alt="Max, the Pawfer French bulldog">
-      <h1>Raise a happy, well-mannered pup</h1>
-      <p>Five-minute lessons, a built-in clicker and Max cheering you on. Pawfer turns dog training into a few minutes of fun every day.</p>
-      <a class="badge" href="mailto:delorinodenver@gmail.com?subject=Pawfer">Coming soon to the App Store</a>
+
+  <main>
+    <!-- Hero: a working clicker -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="rays" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow mono">Dog training app for iPhone</span>
+          <h1 id="hero-title">
+            <span class="w">Click.</span>
+            <span class="w">Treat.</span>
+            <span class="w good">Good dog.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14 C 70 4, 160 2, 296 10"/></svg></span>
+          </h1>
+          <p class="lede">Short daily lessons, a clicker built right in, and Max the French bulldog cheering on every small win.</p>
+          <div class="cta">
+            <span class="pill pill-store"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
+            <a class="pill pill-ghost" href="#method">How it works</a>
+          </div>
+        </div>
+
+        <div class="stage" id="stage">
+          <div class="bubble" id="bubble" role="status" aria-live="polite">Max is ready. Give the clicker a tap.</div>
+          <div class="max-wrap" aria-hidden="true">
+            <div class="lot on" id="max-sit"></div>
+            <div class="lot" id="max-happy"></div>
+            <div class="lot" id="max-tilt"></div>
+          </div>
+          <div class="clicker-wrap" id="clicker-wrap">
+            <svg class="ring" viewBox="0 0 240 240" aria-hidden="true">
+              <circle class="track" cx="120" cy="120" r="110" fill="none" stroke-width="12"/>
+              <circle class="arc" id="arc" cx="120" cy="120" r="110" fill="none" stroke-width="12" stroke-dasharray="691.15" stroke-dashoffset="691.15"/>
+            </svg>
+            <span class="ripple" id="ripple" aria-hidden="true"></span>
+            <div class="fx fx-paws" id="fx-paws" aria-hidden="true"></div>
+            <button class="clicker" id="clicker" type="button" aria-describedby="count">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="43" rx="15" ry="12.5"/><ellipse cx="13" cy="27" rx="6.5" ry="8.5" transform="rotate(-20 13 27)"/><ellipse cx="25" cy="16" rx="6.5" ry="9"/><ellipse cx="39" cy="16" rx="6.5" ry="9"/><ellipse cx="51" cy="27" rx="6.5" ry="8.5" transform="rotate(20 51 27)"/></svg>
+              Click
+            </button>
+          </div>
+          <div class="fx fx-confetti" id="fx-confetti" aria-hidden="true"></div>
+          <div class="readout">
+            <div class="count" id="count"><span id="n">0</span><small>/ 5 clicks</small></div>
+            <button class="mini" id="again" type="button" hidden>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Go again</button>
+            <button class="mini" id="mute" type="button" aria-pressed="false">Sound on</button>
+          </div>
+          <p class="hint">Tap the clicker, or press <kbd>Space</kbd> while it’s focused.</p>
+        </div>
+      </div>
     </section>
-    <section class="cards">
-      <div class="card"><h3>Step-by-step lessons</h3><p>Sit, stay, come, loose-leash walking, tricks and more, broken into small steps.</p></div>
-      <div class="card"><h3>Built-in clicker</h3><p>Mark the exact moment your dog gets it right, with sounds and a daily goal.</p></div>
-      <div class="card"><h3>Care and rest days</h3><p>Walks, meals and gentle rest-day ideas so training fits real life.</p></div>
+
+    <!-- Method: the real sequence of clicker training -->
+    <section class="block" id="method" aria-labelledby="method-title">
+      <div class="wrap">
+        <div class="intro">
+          <div>
+            <span class="kicker mono">The method</span>
+            <h2 class="h2" id="method-title">The click marks the moment. The treat makes it worth it.</h2>
+          </div>
+          <p data-reveal>A click is the same sharp sound every time, so your dog learns exactly which thing earned the reward. Every Pawfer lesson is built on this loop of positive reinforcement.</p>
+        </div>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <div class="panel"><div class="lot" data-lottie="lottie/max-sit.json"></div></div>
+            <div class="timing mono"><b>1</b>The cue</div>
+            <h3>Ask</h3>
+            <p>Say “Sit” once, then wait. Give your dog a moment to work it out.</p>
+          </li>
+          <li class="step" data-reveal style="--d:.08s">
+            <div class="panel"><div class="lot" data-lottie="lottie/max-happy.json"></div><span class="sticker" aria-hidden="true">click!</span></div>
+            <div class="timing mono"><b>2</b>The instant</div>
+            <h3>Click</h3>
+            <p>Click the moment it happens, the second their bottom touches the floor. Not after.</p>
+          </li>
+          <li class="step" data-reveal style="--d:.16s">
+            <div class="panel wide"><div class="lot" data-lottie="lottie/scene-treat.json"></div></div>
+            <div class="timing mono"><b>3</b>Within a second</div>
+            <h3>Treat</h3>
+            <p>Every click earns a treat, quickly. That promise is what makes the click mean something.</p>
+          </li>
+          <li class="step" data-reveal style="--d:.24s">
+            <div class="panel wide"><div class="lot" data-lottie="lottie/scene-highfive.json"></div></div>
+            <div class="timing mono"><b>4</b>About five minutes</div>
+            <h3>Repeat</h3>
+            <p>A handful of reps, then stop while it’s still fun. Come back tomorrow and build on it.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- App tour: real screenshots -->
+    <section class="block tour" aria-labelledby="tour-title">
+      <div class="wrap">
+        <div class="intro">
+          <div>
+            <span class="kicker mono">Inside the app</span>
+            <h2 class="h2" id="tour-title">A whole training day in your pocket.</h2>
+          </div>
+          <p data-reveal>Pawfer plans each day for you, keeps the clicker one tap away and remembers the walks and meals in between.</p>
+        </div>
+      </div>
+      <div class="phones">
+        <figure class="phone" data-reveal>
+          <div class="screen"><img src="img/home.webp" alt="Today screen: today’s plan to master Stay, two of five core lessons done, with shortcuts to the clicker, walks and rest day" width="590" height="1279" loading="lazy"></div>
+          <figcaption><b>Today</b><span>Your plan, your streak and the next lesson on one screen.</span></figcaption>
+        </figure>
+        <figure class="phone" data-reveal style="--d:.06s">
+          <div class="screen"><img src="img/lesson-complete.webp" alt="Lesson complete screen: Stay unlocked, 5 minutes, 5 of 5 steps" width="590" height="1279" loading="lazy"></div>
+          <figcaption><b>Lessons</b><span>Small steps, one at a time, and a celebration when it clicks.</span></figcaption>
+        </figure>
+        <figure class="phone" data-reveal style="--d:.12s">
+          <div class="screen"><img src="img/clicker.webp" alt="Clicker screen: the orange Click button inside its progress ring, 20 of 20, goal reached" width="590" height="1279" loading="lazy"></div>
+          <figcaption><b>Clicker</b><span>A sound and a haptic on every tap, with Classic, Soft and Whistle.</span></figcaption>
+        </figure>
+        <figure class="phone" data-reveal style="--d:.18s">
+          <div class="screen"><img src="img/programs.webp" alt="Programs screen: a recommended program and the list of all nine programs" width="590" height="1279" loading="lazy"></div>
+          <figcaption><b>Programs</b><span>Nine plans, with one recommended from your answers.</span></figcaption>
+        </figure>
+        <figure class="phone" data-reveal style="--d:.24s">
+          <div class="screen"><img src="img/care.webp" alt="Care and walks screen: a walk timer and a daily routine of meals, walks, training and medication" width="590" height="1279" loading="lazy"></div>
+          <figcaption><b>Care &amp; walks</b><span>A walk timer and a routine you can tick off each day.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Programs: real data from the app -->
+    <section class="block" id="programs" aria-labelledby="programs-title">
+      <div class="wrap">
+        <div class="intro">
+          <div>
+            <span class="kicker mono">Programs</span>
+            <h2 class="h2" id="programs-title">Nine programs. Twenty lessons.</h2>
+          </div>
+          <p data-reveal>Pick a problem to fix or a trick to learn. Six quick questions about your dog choose where you start. Each dot is one day of the plan.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter programs">
+          <button type="button" aria-pressed="true" data-f="all">All</button>
+          <button type="button" aria-pressed="false" data-f="Obedience">Obedience</button>
+          <button type="button" aria-pressed="false" data-f="Puppy">Puppy</button>
+          <button type="button" aria-pressed="false" data-f="Behavior">Behavior</button>
+          <button type="button" aria-pressed="false" data-f="Tricks">Tricks</button>
+        </div>
+
+        <ul class="programs" id="program-list">
+          <li class="prog is-free" data-cat="Obedience">
+            <header><span class="mono">Obedience</span><span class="tag free">Free</span></header>
+            <h3>Core commands</h3>
+            <p>The everyday basics every dog needs.</p>
+            <div class="days" data-days="7"></div>
+            <div class="meta mono">7 days · 10 min a day</div>
+            <ul class="lessons"><li>Sit</li><li>Down</li><li>Stay</li><li>Come when called</li><li>Leave it</li></ul>
+          </li>
+          <li class="prog" data-cat="Obedience">
+            <header><span class="mono">Obedience</span><span class="tag">Plus</span></header>
+            <h3>Loose-leash walking</h3>
+            <p>Calm walks without the tug-of-war.</p>
+            <div class="days" data-days="7"></div>
+            <div class="meta mono">7 days · 10 min a day</div>
+            <ul class="lessons"><li>Name game</li><li>Loose-leash walking</li><li>Wait at the door</li></ul>
+          </li>
+          <li class="prog" data-cat="Puppy">
+            <header><span class="mono">Puppy</span><span class="tag">Plus</span></header>
+            <h3>Puppy start</h3>
+            <p>Potty routine, crate comfort and happy handling.</p>
+            <div class="days" data-days="14"></div>
+            <div class="meta mono">14 days · 10 min a day</div>
+            <ul class="lessons"><li>Name game</li><li>Potty routine</li><li>Crate comfort</li><li>Happy handling</li></ul>
+          </li>
+          <li class="prog" data-cat="Behavior">
+            <header><span class="mono">Behavior</span><span class="tag">Plus</span></header>
+            <h3>Quiet on cue</h3>
+            <p>Fewer barking marathons at doors and windows.</p>
+            <div class="days" data-days="7"></div>
+            <div class="meta mono">7 days · 8 min a day</div>
+            <ul class="lessons"><li>Quiet on cue</li><li>Go to your place</li></ul>
+          </li>
+          <li class="prog" data-cat="Behavior">
+            <header><span class="mono">Behavior</span><span class="tag">Plus</span></header>
+            <h3>Gentle mouth</h3>
+            <p>Bite inhibition and better chewing habits.</p>
+            <div class="days" data-days="10"></div>
+            <div class="meta mono">10 days · 8 min a day</div>
+            <ul class="lessons"><li>Gentle mouth</li><li>Leave it</li></ul>
+          </li>
+          <li class="prog" data-cat="Behavior">
+            <header><span class="mono">Behavior</span><span class="tag">Plus</span></header>
+            <h3>Calm when alone</h3>
+            <p>Build confidence when you step out.</p>
+            <div class="days" data-days="14"></div>
+            <div class="meta mono">14 days · 10 min a day</div>
+            <ul class="lessons"><li>Go to your place</li><li>Calm when alone</li></ul>
+          </li>
+          <li class="prog" data-cat="Behavior">
+            <header><span class="mono">Behavior</span><span class="tag">Plus</span></header>
+            <h3>Polite greetings</h3>
+            <p>Four paws on the floor when guests arrive.</p>
+            <div class="days" data-days="7"></div>
+            <div class="meta mono">7 days · 8 min a day</div>
+            <ul class="lessons"><li>Four on the floor</li><li>Go to your place</li><li>Wait at the door</li></ul>
+          </li>
+          <li class="prog" data-cat="Tricks">
+            <header><span class="mono">Tricks</span><span class="tag">Plus</span></header>
+            <h3>Paw &amp; high five</h3>
+            <p>Two crowd-pleasers to start with.</p>
+            <div class="days" data-days="5"></div>
+            <div class="meta mono">5 days · 5 min a day</div>
+            <ul class="lessons"><li>Paw</li><li>High five</li></ul>
+          </li>
+          <li class="prog" data-cat="Tricks">
+            <header><span class="mono">Tricks</span><span class="tag">Plus</span></header>
+            <h3>Party tricks</h3>
+            <p>Spin and roll over.</p>
+            <div class="days" data-days="7"></div>
+            <div class="meta mono">7 days · 6 min a day</div>
+            <ul class="lessons"><li>Spin</li><li>Roll over</li></ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="block" id="pricing" aria-labelledby="pricing-title" style="padding-top:0">
+      <div class="wrap">
+        <div class="intro">
+          <div>
+            <span class="kicker mono">Pricing</span>
+            <h2 class="h2" id="pricing-title">Start free. Unlock the rest when you’re ready.</h2>
+          </div>
+          <p data-reveal>The basics, the clicker and daily care are free for good. Pawfer Plus opens every program.</p>
+        </div>
+
+        <div class="plans">
+          <div class="plan plan-free" data-reveal>
+            <h3>Free</h3>
+            <p class="sub">No account or payment needed.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Core commands program<small>Sit, Down, Stay, Come when called, Leave it</small></span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Clicker<small>Three sounds and a session goal</small></span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Care &amp; walks<small>Walk timer and a daily routine</small></span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Rest day<small>Calm ideas for days off</small></span></li>
+            </ul>
+          </div>
+
+          <div class="plan plan-plus" data-reveal style="--d:.08s">
+            <h3>Pawfer Plus</h3>
+            <div class="price"><b>$49.99</b><span class="mono">a year · about $4.17 a month</span></div>
+            <p class="alt">or $9.99 a month</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>All nine programs and twenty lessons</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Leash pulling, barking, biting, alone time and greetings</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Puppy start and two trick programs</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Everything in Free</span></li>
+            </ul>
+            <p class="fine">US prices; the App Store shows yours. Renews automatically until you cancel in your App Store settings, at least 24 hours before the period ends.</p>
+            <div class="lot" data-lottie="lottie/max-wave.json" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="faq" data-reveal>
+          <h3>Questions</h3>
+          <details>
+            <summary>Do I need an account?</summary>
+            <p>No. Signing in is optional, with Apple or Google. It backs up your dog’s progress so you can restore it on a new phone. Without an account, everything stays on your device.</p>
+          </details>
+          <details>
+            <summary>Is it for puppies or older dogs?</summary>
+            <p>Both. Six quick questions about your dog and your goals pick the first program. Puppy start covers the potty routine, crate comfort and happy handling.</p>
+          </details>
+          <details>
+            <summary>Do I need a physical clicker?</summary>
+            <p>No. The clicker is built in, with Classic, Soft and Whistle sounds and a haptic on every tap.</p>
+          </details>
+          <details>
+            <summary>How do I cancel Pawfer Plus?</summary>
+            <p>In your App Store account settings, at least 24 hours before the current period ends. Deleting your Pawfer account doesn’t cancel a subscription.</p>
+          </details>
+          <details>
+            <summary>Is there an Android version?</summary>
+            <p>Not yet. Pawfer is on iPhone first.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Finale: rest day -->
+    <section class="finale" aria-labelledby="finale-title">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="moon" aria-hidden="true"></div>
+      <div class="wrap finale-grid">
+        <div style="padding-bottom: clamp(40px, 7vw, 100px)">
+          <span class="kicker mono">Rest day</span>
+          <h2 id="finale-title">Days off count too.</h2>
+          <p>When you both need a break, Rest day suggests something calm to do, and your streak stays alive.</p>
+          <span class="pill pill-store"><span class="dot" aria-hidden="true"></span>Coming soon to the App Store</span>
+        </div>
+        <div class="lot" data-lottie="lottie/max-sleep.json" aria-hidden="true"></div>
+      </div>
     </section>
   </main>
-  <footer><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><br>© 2026 Pawfer</footer>
+
+  <footer class="footer">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="img/icon-128.png" alt="">Pawfer</a>
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:delorinodenver@gmail.com?subject=Pawfer">Contact</a>
+      </nav>
+      <span class="mono">© 2026 Pawfer</span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

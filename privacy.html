@@ -2,73 +2,122 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Privacy Policy · Pawfer</title>
+  <meta name="theme-color" content="#5B3FD9">
   <link rel="icon" href="favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Figtree:wght@400;500;600;700&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="./"><img src="icon.png" alt="">Pawfer</a>
-      <nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+      <a class="brand" href="./"><img src="img/icon-128.png" alt="">Pawfer</a>
+      <nav aria-label="Main">
+        <a class="hide-sm" href="./#programs">Programs</a>
+        <a href="./#pricing">Pricing</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
     </div>
   </header>
-  <main class="wrap">
-    <article>
-      <h1>Privacy Policy</h1>
-      <p class="meta">Effective October 3, 2026</p>
 
-      <p>Pawfer ("we", "us") is a dog-training app. This policy explains what information the app collects, why, and the choices you have. We keep it short because we collect very little.</p>
+  <main>
+    <section class="legal-hero">
+      <div class="rays" aria-hidden="true"></div>
+      <div class="wrap">
+        <div>
+          <h1>Privacy Policy</h1>
+          <p class="meta mono">Effective October 3, 2026</p>
+        </div>
+        <div class="lot" data-lottie="lottie/max-sit.json" aria-hidden="true"></div>
+      </div>
+    </section>
 
-      <h2>You can use Pawfer without an account</h2>
-      <p>Signing in is optional. Without an account, your dog's profile and training progress stay on your device and are not sent to us.</p>
+    <div class="wrap legal">
+      <nav class="toc" aria-label="On this page">
+        <p class="mono">On this page</p>
+        <ol>
+          <li><a href="#you-can-use-pawfer-without-an-account">You can use Pawfer without an account</a></li>
+          <li><a href="#information-we-collect">Information we collect</a></li>
+          <li><a href="#how-we-use-it">How we use it</a></li>
+          <li><a href="#service-providers">Service providers</a></li>
+          <li><a href="#where-your-data-is-stored-and-how-we-protect-it">Where your data is stored and how we protect it</a></li>
+          <li><a href="#keeping-and-deleting-your-data">Keeping and deleting your data</a></li>
+          <li><a href="#children">Children</a></li>
+          <li><a href="#your-rights">Your rights</a></li>
+          <li><a href="#changes">Changes</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </nav>
+      <article>
+        <p>Pawfer ("we", "us") is a dog-training app. This policy explains what information the app collects, why, and the choices you have. We keep it short because we collect very little.</p>
 
-      <h2>Information we collect</h2>
-      <ul>
-        <li><strong>Account details (only if you sign in).</strong> When you sign in with Apple or Google, we receive your email address and, if you share it, your name. If you use Sign in with Apple and choose "Hide My Email", we receive a private relay address instead.</li>
-        <li><strong>Training progress (only if you sign in).</strong> Your dog's name, breed, age, goals, completed lessons, streak and app settings, so we can back them up and restore them on another device.</li>
-        <li><strong>Purchases.</strong> If you subscribe to Pawfer Plus, Apple or Google processes the payment. We never see your card details. We receive a purchase record (product, dates, status) so we can unlock Plus for you.</li>
-      </ul>
-      <p>We do not collect your location, contacts, photos or microphone audio, and we do not use advertising trackers.</p>
+        <h2 id="you-can-use-pawfer-without-an-account">You can use Pawfer without an account</h2>
+        <p>Signing in is optional. Without an account, your dog's profile and training progress stay on your device and are not sent to us.</p>
 
-      <h2>How we use it</h2>
-      <ul>
-        <li>To sign you in and back up and restore your progress.</li>
-        <li>To unlock and restore Pawfer Plus.</li>
-        <li>To answer you if you contact us.</li>
-      </ul>
-      <p>We do not sell your personal information or share it for advertising.</p>
+        <h2 id="information-we-collect">Information we collect</h2>
+        <ul>
+          <li><strong>Account details (only if you sign in).</strong> When you sign in with Apple or Google, we receive your email address and, if you share it, your name. If you use Sign in with Apple and choose "Hide My Email", we receive a private relay address instead.</li>
+          <li><strong>Training progress (only if you sign in).</strong> Your dog's name, breed, age, goals, completed lessons, streak and app settings, so we can back them up and restore them on another device.</li>
+          <li><strong>Purchases.</strong> If you subscribe to Pawfer Plus, Apple or Google processes the payment. We never see your card details. We receive a purchase record (product, dates, status) so we can unlock Plus for you.</li>
+        </ul>
+        <p>We do not collect your location, contacts, photos or microphone audio, and we do not use advertising trackers.</p>
 
-      <h2>Service providers</h2>
-      <p>We use a small number of providers who process data for us:</p>
-      <ul>
-        <li><strong>Supabase</strong>: account sign-in and progress backup (data stored in Singapore).</li>
-        <li><strong>RevenueCat</strong>: your account ID (if you sign in) and purchase records, so Pawfer Plus follows you to a new phone.</li>
-        <li><strong>Apple and Google</strong>: sign-in and in-app payments, under their own privacy policies.</li>
-      </ul>
+        <h2 id="how-we-use-it">How we use it</h2>
+        <ul>
+          <li>To sign you in and back up and restore your progress.</li>
+          <li>To unlock and restore Pawfer Plus.</li>
+          <li>To answer you if you contact us.</li>
+        </ul>
+        <p>We do not sell your personal information or share it for advertising.</p>
 
-      <h2>Where your data is stored and how we protect it</h2>
-      <p>Backed-up data is stored with Supabase in Singapore. It is encrypted in transit, and each account can read only its own data. No system is perfectly secure, so we can't guarantee absolute security. We are based in the Philippines and handle personal information in line with the Philippine Data Privacy Act of 2012.</p>
+        <h2 id="service-providers">Service providers</h2>
+        <p>We use a small number of providers who process data for us:</p>
+        <ul>
+          <li><strong>Supabase</strong>: account sign-in and progress backup (data stored in Singapore).</li>
+          <li><strong>RevenueCat</strong>: your account ID (if you sign in) and purchase records, so Pawfer Plus follows you to a new phone.</li>
+          <li><strong>Apple and Google</strong>: sign-in and in-app payments, under their own privacy policies.</li>
+        </ul>
 
-      <h2>Keeping and deleting your data</h2>
-      <p>We keep account data until you delete your account. You can delete it at any time in the app under <strong>Progress → Account → Delete account</strong>. This permanently removes your account and backed-up progress. Purchase records may be kept by Apple, Google and RevenueCat as required for billing and tax. Deleting your account does not cancel a subscription; manage that in your App Store or Google Play settings.</p>
+        <h2 id="where-your-data-is-stored-and-how-we-protect-it">Where your data is stored and how we protect it</h2>
+        <p>Backed-up data is stored with Supabase in Singapore. It is encrypted in transit, and each account can read only its own data. No system is perfectly secure, so we can't guarantee absolute security. We are based in the Philippines and handle personal information in line with the Philippine Data Privacy Act of 2012.</p>
 
-      <h2>Children</h2>
-      <p>Pawfer is not directed to children under 13, and we do not knowingly collect personal information from them. If you believe a child has given us information, contact us and we will delete it.</p>
+        <h2 id="keeping-and-deleting-your-data">Keeping and deleting your data</h2>
+        <p>We keep account data until you delete your account. You can delete it at any time in the app under <strong>Progress → Account → Delete account</strong>. This permanently removes your account and backed-up progress. Purchase records may be kept by Apple, Google and RevenueCat as required for billing and tax. Deleting your account does not cancel a subscription; manage that in your App Store or Google Play settings.</p>
 
-      <h2>Your rights</h2>
-      <p>Depending on where you live, you may have the right to access, correct, export, delete or object to the processing of your personal information, and to complain to the National Privacy Commission (Philippines) or your local data protection authority. You can delete your account in the app, or email us for any other request.</p>
+        <h2 id="children">Children</h2>
+        <p>Pawfer is not directed to children under 13, and we do not knowingly collect personal information from them. If you believe a child has given us information, contact us and we will delete it.</p>
 
-      <h2>Changes</h2>
-      <p>If we change this policy, we will update the date above and, for significant changes, let you know in the app.</p>
+        <h2 id="your-rights">Your rights</h2>
+        <p>Depending on where you live, you may have the right to access, correct, export, delete or object to the processing of your personal information. You can delete your account in the app, or email us for any other request. You can also contact your local data protection authority if you have a concern we haven't resolved.</p>
 
-      <h2>Contact</h2>
-      <p>Questions? Email <a href="mailto:delorinodenver@gmail.com">delorinodenver@gmail.com</a>.</p>
-    </article>
+        <h2 id="changes">Changes</h2>
+        <p>If we change this policy, we will update the date above and, for significant changes, let you know in the app.</p>
+
+        <h2 id="contact">Contact</h2>
+        <p>Questions? Email <a href="mailto:delorinodenver@gmail.com">delorinodenver@gmail.com</a>.</p>
+      </article>
+    </div>
   </main>
-  <footer><a href="./">Home</a><a href="terms.html">Terms of Service</a><br>© 2026 Pawfer</footer>
+
+  <footer class="footer">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="img/icon-128.png" alt="">Pawfer</a>
+      <nav aria-label="Footer">
+        <a href="./">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:delorinodenver@gmail.com?subject=Pawfer">Contact</a>
+      </nav>
+      <span class="mono">© 2026 Pawfer</span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>
